@@ -10,41 +10,41 @@ class Program
         Console.OutputEncoding = Encoding.UTF8;
 
         int numIterations = 1;  // Đặt thành 1 lần để dễ dàng theo dõi
-        int arraySize = 10;     // Giảm số phần tử để dễ quan sát
         double totalMilliseconds = 0;
 
-        Random rand = new Random();
-
-        for (int i = 0; i < numIterations; i++)
+        // Mảng cố định để dễ quan sát
+        Element[] a = new Element[]
         {
-            // Tạo mảng với các giá trị ngẫu nhiên và lưu chỉ số ban đầu
-            Element[] a = new Element[arraySize];
-            for (int j = 0; j < arraySize; j++)
-            {
-                a[j] = new Element { Value = rand.Next(0, 100), Index = j };
-            }
+            new Element { Value = -11, Index = 0 },
+            new Element { Value = 12, Index = 1 },
+            new Element { Value = -42, Index = 2 },
+            new Element { Value = 0, Index = 3 },
+            new Element { Value = 90, Index = 4 },
+            new Element { Value = 68, Index = 5 },
+            new Element { Value = 6, Index = 6 },
+            new Element { Value = -9, Index = 7 }
+        };
 
-            Console.WriteLine("Mảng ban đầu:");
-            PrintArray(a);
+        Console.WriteLine("Mảng ban đầu:");
+        PrintArray(a);
 
-            Timing timing = new Timing();
-            timing.StartTime();
-            QuickSort(a, 0, a.Length - 1);
-            timing.StopTime();
+        Timing timing = new Timing();
+        timing.StartTime();
+        QuickSort(a, 0, a.Length - 1);
+        timing.StopTime();
 
-            totalMilliseconds += timing.ResultInMilliseconds();
+        totalMilliseconds += timing.ResultInMilliseconds();
 
-            Console.WriteLine("\nMảng sau khi sắp xếp:");
-            PrintArray(a);
+        Console.WriteLine("\nMảng sau khi sắp xếp:");
+        PrintArray(a);
 
-            // Kiểm tra tính ổn định
-            if (!IsStable(a))
-            {
-                Console.WriteLine("Thuật toán không ổn định.");
-            }
+        // Kiểm tra tính ổn định
+        if (!IsStable(a))
+        {
+            Console.WriteLine("Thuật toán không ổn định.");
         }
 
-        Console.WriteLine($"\nThời gian trung bình thuật toán chạy: {totalMilliseconds / numIterations} ms");
+        Console.WriteLine($"\nThời gian trung bình thuật toán chạy: {totalMilliseconds} ms");
         Console.ReadLine();
     }
 
@@ -87,9 +87,9 @@ class Program
         a[j] = t;
     }
 
+    // Chọn pivot là phần tử giữa mảng và thực hiện Partition
     private static int Partition(Element[] a, int l, int r)
     {
-        // Chọn pivot là phần tử giữa mảng
         int mid = (l + r) / 2;
         Swap(a, l, mid);  // Đưa pivot về vị trí đầu tiên
         Element pivot = a[l];
@@ -109,7 +109,7 @@ class Program
         return ndx;
     }
 
-
+    // Hàm QuickSort
     private static void QuickSort(Element[] a, int l, int r)
     {
         if (l < r)
@@ -120,6 +120,7 @@ class Program
         }
     }
 
+    // Lớp Timing để đo thời gian thực thi
     public class Timing
     {
         private TimeSpan startingTime;

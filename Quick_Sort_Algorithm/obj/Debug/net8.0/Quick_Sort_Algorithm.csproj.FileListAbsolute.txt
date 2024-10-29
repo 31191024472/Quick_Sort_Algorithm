@@ -12,3 +12,4 @@ C:\Users\Matebook D15\source\repos\Quick_Sort_Algorithm\Quick_Sort_Algorithm\obj
 C:\Users\Matebook D15\source\repos\Quick_Sort_Algorithm\Quick_Sort_Algorithm\obj\Debug\net8.0\Quick_Sort_Algorithm.pdb
 C:\Users\Matebook D15\source\repos\Quick_Sort_Algorithm\Quick_Sort_Algorithm\obj\Debug\net8.0\Quick_Sort_Algorithm.genruntimeconfig.cache
 C:\Users\Matebook D15\source\repos\Quick_Sort_Algorithm\Quick_Sort_Algorithm\obj\Debug\net8.0\ref\Quick_Sort_Algorithm.dll
+C:\Users\Matebook D15\source\repos\Quick_Sort_Algorithm\Quick_Sort_Algorithm\obj\Debug\net8.0\Quick_Sort_Algorithm.sourcelink.json
